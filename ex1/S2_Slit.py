@@ -1,6 +1,7 @@
 '''
 Cornu Integration Program for ST2
 by sdat2
+Ignore Integrator warnings if possible.
 '''
 
 import scipy
@@ -41,17 +42,18 @@ def Two_Ended(x0,x1,lam=0.01,D=0.3):
 
 def Plot_Mag_Arg(d=0.1, lam=0.01, D=0.3):
         '''
-        Runs the Two_ended function for different parameters 
+        Runs the Two_ended function for different parameters
         and plots the result.
         '''
         mag_list = []; arg_list =[]
-        x = np.linspace(-0.05,0.05,num=1000)
+        x = np.linspace(-0.8,0.8,num=1000)
         for i in x:
-            mag, arg = Two_Ended(i, i+d, D=D, lam=lam)
+            mag, arg = Two_Ended(i-d/2, i+d/2, D=D, lam=lam)
             mag_list.append(mag); arg_list.append(arg)
         # Plot the magnitudes.
         plt.plot(x,mag_list)
         plt.xlabel('x/m')
+        plt.xlim([-0.5,0.5])
         plt.ylabel('Intensity')
         plt.title('The Illumination Pattern at D='+str(D)+'m')
         plt.savefig('D_Apperture_Pattern_'+str(D)+'_'+'.pdf')
