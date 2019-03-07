@@ -26,13 +26,19 @@ for i in np.linspace(-2*np.pi,2*np.pi,num=10000):
 	C,S = Integrator(i)
 	y.append(S); x.append(C)
 
+xspot=[]; yspot=[];
+for i in np.linspace(-3,3,num=41):
+	C,S = Integrator(i)
+	yspot.append(S); xspot.append(C);
+
 plt.plot(x,y, color='b', linewidth=1)
+plt.plot(xspot,yspot, 'xg')
 plt.plot([0,0], [-0.8,0.8], color= 'r', linewidth=1)
 plt.plot([-0.8,0.8], [0,0], color= 'r', linewidth=1)
-plt.xlabel('S(u)')
-plt.ylabel('C(u)')
+plt.xlabel(r'S(u)')
+plt.ylabel(r'C(u)')
 plt.xlim([-0.8,0.8])
 plt.ylim([-0.8,0.8])
 
-plt.title('The Cornu Spiral')
+plt.title('The Cornu Spiral. Spots every 0.1 u.')
 plt.savefig('C_Cornu_Spiral.pdf')
