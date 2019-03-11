@@ -17,6 +17,7 @@ t = np.linspace(0,tmax,num=int(tmax/h))
 # The exact solution that I worked out.
 yexact = [1/4 + np.exp(-x)*(np.cos(x)-5/2*np.sin(x))-5/4*np.exp(-2*x) for x in t]    # Exact solution
 
+#Initial conditions etc.
 qstar = np.zeros((3,len(t)));
 qstar[0][0]=q0[0][0]; qstar[1][0]=q0[1][0]; qstar[2][0]=q0[2][0];
  # Initial condition gives solution at t=0.
