@@ -37,6 +37,9 @@ pend_time2 = []
 energy = [] # Energy by weight
 
 def Pendulum(init=initial_displacement):
+	'''
+	Function to iterate through pendulum.
+	'''
 
 	k1 = np.zeros((2,1))
 	q1 = np.zeros((2,1))
@@ -60,7 +63,7 @@ def Pendulum(init=initial_displacement):
 			q0=q1
 
 		if counter%20 == 0:
-			energy.append(q0[0][0]**2 +q0[1][0]**2); pend_time2.append(i)
+			energy.append(0.5*q0[0][0]**2 +0.5*q0[1][0]**2); pend_time2.append(i)
 		counter +=1
 		if i > mint:
 			displacement.append(q0[0][0])

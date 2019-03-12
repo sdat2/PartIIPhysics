@@ -1,6 +1,6 @@
-#Pendulum for task2 by sdat2
-#Usage: 2_Task2Pendulum.py [damping coeff] [forcing coeff] [timestep] [oscillations modelled]
-#Example: 2_Task2Pendulum.py 0.5 0.5 0.1 10
+#Pendulum for 3_SupTask.py sdat2
+#Usage: 3_SupTask.py [damping coeff] [forcing coeff] [timestep] [oscillations modelled]
+#Example: 3_SupTask.py 0.5 0.5 0.1 10
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -34,8 +34,8 @@ B =np.array([[0],[1]])
 #it is only ever useful to plot about 10 oscillations worth
 mint = (oscillations-graph_os)*2*np.pi
 mint2=(oscillations -sample_os)*2*np.pi
-maxt = oscillations*2*np.pi # given that b = 1 
-t = np.linspace(0,maxt,num=int(maxt/h)) 
+maxt = oscillations*2*np.pi # given that b = 1
+t = np.linspace(0,maxt,num=int(maxt/h))
 
 #sometimes it is useful to compare to perfect SHM
 def y_maker(time):
@@ -56,10 +56,10 @@ def Pendulum(init=initial_displacement,z=z,F=F):
 	counter = 0
 	clicker = 0
 	for i in t:
-		if i < 0.95*h: 
+		if i < 0.95*h:
 			q0[0][0]=init; q0[1][0]=0
-		else:	
-			k1 = k_maker(q0,i,z=z,F=F) 
+		else:
+			k1 = k_maker(q0,i,z=z,F=F)
 			q1 = (q0 +k1*h/2)
 			k2 = k_maker(q1,i +h/2,z=z,F=F)
 			q2 = (q0 +k2*h/2)
@@ -68,17 +68,17 @@ def Pendulum(init=initial_displacement,z=z,F=F):
 			k4 = k_maker(q3,i*h,z=z,F=F)
 			q1=q0+(k1+2*k2+2*k3+k4)*(h/6)       # Intermediate value
 			if q1[1][0]*q0[1][0]<0 and i >mint2: # should click every time passes through origin
-				clicker +=1 
+				clicker +=1
 			q0=q1
- 
+
 		counter +=1
-		if i > mint:	
+		if i > mint:
 			displacement.append(q0[0][0])
 			velocity.append(q0[1][0])
 			pend_time.append(i)
 	return (2*(i-mint2))/clicker, displacement, velocity, pend_time
 
-	
+
 if True:
 	apparent_period,DispA,VelA,TA = Pendulum(init=0.20)
 	apparent_period,DispB,VelB,TB = Pendulum(init=0.20001)
