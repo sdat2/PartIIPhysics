@@ -24,7 +24,8 @@ maxt = oscillations*2*np.pi # given that b = 1
 time = np.linspace(0,maxt,num=int(maxt/h))
 
 def y_maker(time):
-	return initial_displacement*np.cos(time) # the theoretical value in the small angle limit
+	return initial_displacement*np.cos(time)
+	# the theoretical value in the small angle limit
 
 def k_maker(q_value,time):
 	return A.dot(q_value)+B*(-np.sin(q_value[0][0])*b+F*np.sin(omega_d*time))
@@ -38,16 +39,15 @@ energy = [] # Energy by weight
 
 def Pendulum(init=initial_displacement):
 	'''
-	Function to iterate through pendulum.
+	Function to iterate through pendulum. Returns period, alters the globals.
 	'''
-
 	k1 = np.zeros((2,1))
 	q1 = np.zeros((2,1))
 	q0 = np.zeros((2,1))
 	counter = 0 # to count iterations
 	clicker = 0 # to count passes through origin
 	for i in time:
-		if i < 0.95*h:
+		if i < 0.95*h: # safely before the first time step
 			q0[0][0]=init; q0[1][0]=0
 		else:
 			k1 = k_maker(q0,i*h)  # Approx for y gives approx for deriv
