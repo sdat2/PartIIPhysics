@@ -81,19 +81,19 @@ if True:
 	plt.plot(pend_time,displacement,color='blue', marker='+')
 	plt.xlabel('Time (s)')
 	plt.ylabel('y')
-	plt.savefig('1A_InitialComparison.pdf')
+	plt.savefig('A_InitialComparison.pdf')
 	plt.clf()
 
 	plt.plot(pend_time2,energy,color='orange')
 	plt.xlabel('Time (s)')
 	plt.ylabel(r'$\frac{E}{mg}$ ($m^{-1}$)')
 	plt.title('Energy loss over time when timestep ='+str(h)+'seconds')
-	plt.savefig('1C_Energy_Loss_h'+str(h)+'_.pdf')
+	plt.savefig('C_Energy_Loss_h'+str(h)+'_.pdf')
 	plt.clf()
 
 
 
-if False:
+if True:
 	theta = np.linspace(0.001, np.pi, num = 100)
 	period = []
 	for init_d in theta:
@@ -107,5 +107,5 @@ if False:
 	plt.title(r"Period vs Initial Displacement for a Pendulum "\
 	           +  r" (T( $ \frac {\pi}{2} $ )="\
 	           +"{:.2f}".format(Pendulum(init=np.pi/2))+" seconds)")
-	plt.savefig('1B_Period_Displacement.pdf')
+	plt.savefig('B_Period_Displacement.pdf')
 	plt.clf()
