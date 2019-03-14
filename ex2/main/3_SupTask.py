@@ -41,11 +41,6 @@ t = np.linspace(0,maxt,num=int(maxt/h))
 def y_maker(time):
 	return initial_displacement*np.cos(time)
 
-def k_maker(q_value,time,z=z,F=F): #(Otherwise known as the derivative!)
-	A = np.array([[0,1],[0,-z]])
-	B =np.array([[0],[1]])
-	return A.dot(q_value)+B*(-np.sin(q_value[0][0])*b+F*np.sin(omega_d*time))
-
 def Pendulum(init=initial_displacement,z=z,F=F):
 	displacement = []
 	velocity = []
