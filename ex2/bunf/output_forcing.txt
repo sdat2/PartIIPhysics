@@ -1,0 +1,4 @@
+Apparent period of oscillation (when Forcing=0.5) (from sign changes of ang velocity): 9.42477796077
+Apparent period of oscillation (when Forcing=1.2) (from sign changes of ang velocity): 11.0879740715
+Apparent period of oscillation (when Forcing=1.44) (from sign changes of ang velocity): 9.42477796077
+Apparent period of oscillation (when Forcing=1.465) (from sign changes of ang velocity): 9.42477796077
