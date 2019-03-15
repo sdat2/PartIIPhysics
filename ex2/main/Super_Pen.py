@@ -51,5 +51,8 @@ def Super_Pen(h=0.5,b=1, m=1, F=0, omega_d=2/3, init=0.01, \
             disp.append(q0[0][0])
             vel.append(q0[1][0])
             pend_time.append(i)
-    period = (2*i)/clicker # should return the period of the simple pendulum
+    if clicker ==0:
+        period = -1
+    else:
+        period = (2*(i-mint2))/clicker # should return the period of the simple pendulum
     return period, disp, vel, pend_time, energy, energy_time
