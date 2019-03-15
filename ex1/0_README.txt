@@ -8,4 +8,4 @@ Script 2_CT2_Cornu_Integrator.py produces figure C, showing a cornu Spiral.
 
 Scipt 3_S2_Slit.py produces some Fresnel diffraction patterns for slits
 (Figures D and E), for different distances from the slit (D). These fit my
-expectation.
+expectation.a
